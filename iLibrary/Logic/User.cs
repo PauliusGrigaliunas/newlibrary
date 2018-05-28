@@ -1,8 +1,10 @@
-﻿using System;
+﻿using iLibrary.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace iLibrary.Logic
 {
@@ -26,7 +28,7 @@ namespace iLibrary.Logic
             {
                 Vartotojas vartotojas = new Vartotojas()
                 {
-                    Id = NewIdForVartotojai(),
+                    Id = ID = NewIdForVartotojai(),
                     Prisijungimo_vardas = Username,
                     Slaptazodis = Password,
                     DarbSkait = DarbSkait,
@@ -64,6 +66,12 @@ namespace iLibrary.Logic
                     return true;
                 else return false;
             }
+        }
+
+        public Form ClientOrEmployee()
+        {
+            if (DarbSkait.Equals(0)) return new UserSettingsForm(this);
+            else return new EmployeeForm(this);
         }
     }
 }

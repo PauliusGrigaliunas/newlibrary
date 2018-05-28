@@ -99,12 +99,14 @@
     <Compile Include="Knygos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="LibraryDataDataSet.cs">
+      <DependentUpon>LibraryDataDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LibraryDataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDataDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Logic\FormManager.cs" />
     <Compile Include="Logic\Program.cs" />
     <Compile Include="Logic\User.cs" />
     <Compile Include="Model.Context.cs">

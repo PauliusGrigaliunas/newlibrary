@@ -40,7 +40,7 @@ namespace iLibrary
 
             if (exists)
             {
-                Form form = FormManager.ClientOrEmployee(user.DarbSkait);
+                Form form = user.ClientOrEmployee();
                 form.ShowDialog();
             }
             else

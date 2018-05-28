@@ -74,7 +74,7 @@ namespace iLibrary.Forms
                     user.Code =  (!(textBox7.Text == "") ? Int32.Parse(textBox7.Text) : (int?)null);
 
                     user.FillData();
-                    Form form = FormManager.ClientOrEmployee(user.DarbSkait);
+                    Form form = user.ClientOrEmployee();
                     form.ShowDialog();
                 }
 
