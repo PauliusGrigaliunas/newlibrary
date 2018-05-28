@@ -15,6 +15,8 @@ namespace iLibrary.Forms
         public RegistrationForm()
         {
             InitializeComponent();
+            textBox2.PasswordChar = '*';
+            textBox3.PasswordChar = '*';
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
