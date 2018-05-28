@@ -82,6 +82,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Logic\DataManagment.cs" />
+    <Compile Include="Logic\Login.cs" />
     <Compile Include="Logic\Program.cs" />
     <Compile Include="Logic\User.cs" />
     <Compile Include="Model.Context.cs">
@@ -106,7 +107,7 @@
     <Compile Include="Forms\userForm.Designer.cs">
       <DependentUpon>userForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vartotojai.cs">
+    <Compile Include="Vartotojas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\MainForm.resx">

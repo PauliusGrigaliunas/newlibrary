@@ -12,10 +12,10 @@ namespace iLibrary
     using System;
     using System.Collections.Generic;
     
-    public partial class Vartotojai
+    public partial class Vartotojas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Vartotojai()
+        public Vartotojas()
         {
             this.Egzempliorius = new HashSet<Egzemplioriu>();
         }
