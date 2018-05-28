@@ -100,7 +100,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Logic\DataManagment.cs" />
-    <Compile Include="Logic\Login.cs" />
     <Compile Include="Logic\Program.cs" />
     <Compile Include="Logic\User.cs" />
     <Compile Include="Model.Context.cs">

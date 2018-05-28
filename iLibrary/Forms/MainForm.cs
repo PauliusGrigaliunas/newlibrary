@@ -1,4 +1,5 @@
 ﻿using iLibrary.Forms;
+using iLibrary.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace iLibrary
 {
     public partial class MainForm : Form
     {
+        User user = new User();
         public MainForm()
         {
             InitializeComponent();
@@ -31,10 +33,12 @@ namespace iLibrary
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            Logic.Login login = new Logic.Login();
-            int typeOfUser = rb_skaitytojas.Checked ? 0 : 1;
-            var exists = login.LogMeIn(textBox1.Text, textBox2.Text, typeOfUser);
-            //Ideally in this place we would like to load a new form :)
+            DataManagment dataManagment = new DataManagment();
+            user.DarbSkait = rb_skaitytojas.Checked ? 0 : 1;
+            user.Username = textBox1.Text;
+            user.Password = textBox2.Text;
+            var exists = dataManagment.LogMeIn(user);
+
             if (exists)
             {
                 // successful login

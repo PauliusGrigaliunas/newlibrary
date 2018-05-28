@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestLabrary
 {
     [TestClass]
-    public class UnitTest1
+    public class LogMeInTest
     {
         [TestMethod]
         public void TestMethod1()
