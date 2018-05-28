@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iLibrary.Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace iLibrary.Forms
 {
     public partial class RegistrationForm : Form
     {
+        DataManagment dataManagment = new DataManagment();
         public RegistrationForm()
         {
             InitializeComponent();
@@ -46,17 +48,51 @@ namespace iLibrary.Forms
 
         private void textBox6_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode.Equals(Keys.Enter)) textBox7.Focus();
+        }
+        private void textBox7_KeyDown(object sender, KeyEventArgs e)
+        {
             if (e.KeyCode.Equals(Keys.Enter)) RegistrationBtn.PerformClick();
         }
 
         private void RegistrationBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                User user = new User();
 
+                user.DarbSkait = ((employeeButton.Checked) ? 1 : 0);
+                user.Username = (!(textBox1.Text == "") ? textBox1.Text : null);
+                user.Password = ((!(textBox2.Text == "") && textBox2.Text == textBox3.Text) ? textBox2.Text : null);
+
+                if (user.Username == null) MessageBox.Show("neįvestas 'Prisijungimo vardas'");
+                else if (user.Password == null) MessageBox.Show("Blogai įvestas 'Slaptažodis'");
+                else
+                {
+                    user.Name =  (!(textBox4.Text == "") ? textBox4.Text : null);
+                    user.Phone = (!(textBox5.Text == "") ? Int32.Parse(textBox5.Text) : (int?)null);
+                    user.Address = (!(textBox6.Text == "") ? textBox6.Text : null);
+                    user.Code =  (!(textBox7.Text == "") ? Int32.Parse(textBox7.Text) : (int?)null);
+
+                    dataManagment.FillData(user);
+                }
+
+
+
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("blogi duomenys!");
+            }
         }
+
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+
+
     }
 }
