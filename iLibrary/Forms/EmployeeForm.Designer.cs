@@ -33,6 +33,7 @@
             this.removeBookButton = new System.Windows.Forms.Button();
             this.addUnitButton = new System.Windows.Forms.Button();
             this.deleteUnitButton = new System.Windows.Forms.Button();
+            this.testLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // workerLabel
@@ -81,11 +82,20 @@
             this.deleteUnitButton.Text = "Pašalinti egzempliorių";
             this.deleteUnitButton.UseVisualStyleBackColor = true;
             // 
+            // testLabel
+            // 
+            this.testLabel.AutoSize = true;
+            this.testLabel.Location = new System.Drawing.Point(40, 226);
+            this.testLabel.Name = "testLabel";
+            this.testLabel.Size = new System.Drawing.Size(0, 13);
+            this.testLabel.TabIndex = 3;
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 450);
+            this.ClientSize = new System.Drawing.Size(483, 491);
+            this.Controls.Add(this.testLabel);
             this.Controls.Add(this.deleteUnitButton);
             this.Controls.Add(this.addUnitButton);
             this.Controls.Add(this.removeBookButton);
@@ -105,5 +115,6 @@
         private System.Windows.Forms.Button removeBookButton;
         private System.Windows.Forms.Button addUnitButton;
         private System.Windows.Forms.Button deleteUnitButton;
+        private System.Windows.Forms.Label testLabel;
     }
 }

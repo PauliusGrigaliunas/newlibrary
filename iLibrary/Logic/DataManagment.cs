@@ -37,5 +37,40 @@ namespace iLibrary.Logic
                 return idList.Last() + 1;
             }
         }
+        public void GetAllBooks(List<Book> books)
+        {
+            IQueryable<Knygos> knygos;
+            using (var contex = new LibraryDataEntities())
+            {
+                knygos = contex.Knygos.Where(r => r.Isbn > 0);
+                foreach (var knyga in knygos)
+                {
+                    Book book = new Book();
+                    book.Isbn = knyga.Isbn;
+                    book.Pavadinimas = knyga.Pavadinimas;
+                    book.Autorius = knyga.Autorius;
+                    book.Leidykla = knyga.Leidykla;
+                    book.Metai = knyga.Metai;
+                    books.Add(book);
+                }
+            }
+        }
+        public void GetAllCopies(List<Copy> copies)
+        {
+            IQueryable<Egzemplioriu> egzemplioriai;
+            using (var contex = new LibraryDataEntities())
+            {
+                egzemplioriai = contex.Egzempliorius.Where(r => r.Id > 0);
+                foreach (var egz in egzemplioriai)
+                {
+                    Copy c = new Copy();
+                    c.Isbn = egz.Isbn;
+                    c.Id = egz.Id;
+                    c.Skaitytojas = egz.Skaitytojas;
+                    c.GrazinimoLaikas = egz.Gražinimo_laikas;
+                    copies.Add(c);
+                }
+            }
+        }
     }
 }
