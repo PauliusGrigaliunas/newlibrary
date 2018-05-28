@@ -72,5 +72,26 @@ namespace iLibrary.Logic
                 }
             }
         }
+        public List<BooksWithCopies> GetBooksWithCopies(List<Copy> copies, List<Book> books)
+        {
+            List<BooksWithCopies> bwc = new List<BooksWithCopies>();
+            var q =
+                    from c in copies
+                    join b in books on c.Isbn equals b.Isbn into ps
+                    from b in ps.DefaultIfEmpty()
+                    select new { Isbn = c.Isbn, Id = c.Id, Pavadinimas = b.Pavadinimas, Autorius = b.Autorius, Skaitytojas = c.Skaitytojas, GrazinimoLaikas = c.GrazinimoLaikas};
+            foreach (var element in q)
+            {
+                BooksWithCopies temp = new BooksWithCopies();
+                temp.Isbn = element.Isbn;
+                temp.Id = element.Id;
+                temp.Pavadinimas = element.Pavadinimas;
+                temp.Autorius = element.Autorius;
+                temp.Skaitytojas = element.Skaitytojas;
+                temp.GrazinimoLaikas = element.GrazinimoLaikas;
+                bwc.Add(temp);
+            }
+            return bwc;
+        }
     }
 }
