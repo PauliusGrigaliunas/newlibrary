@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace iLibrary.Forms
 {
-    public partial class AddBookForm : Form
+    public partial class BookInfoForm : Form
     {
-        public AddBookForm()
+        public BookInfoForm()
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void commentLabel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
