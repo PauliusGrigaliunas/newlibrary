@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace iLibrary
+namespace iLibrary.Forms
 {
-    public partial class userForm : Form
+    public partial class UserSettingsForm : Form
     {
-        public userForm()
+        public UserSettingsForm()
         {
             InitializeComponent();
         }
