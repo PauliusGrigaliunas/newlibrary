@@ -13,7 +13,7 @@ namespace iLibrary.Logic
         {
             using (LibraryDataEntities contex = new LibraryDataEntities())
             {
-                Vartotojai vartotojas = new Vartotojai()
+                Vartotojas vartotojas = new Vartotojas()
                 {
                     Id = NewIdForVartotojai(),
                     Prisijungimo_vardas = user.Username,
@@ -24,7 +24,7 @@ namespace iLibrary.Logic
                     Adresas = user.Address,
                     Pasto_Kodas = user.Code
                 };
-                contex.Vartotojais.Add(vartotojas);
+                contex.Vartotojas.Add(vartotojas);
                 contex.SaveChanges();
             }
         }
@@ -32,7 +32,7 @@ namespace iLibrary.Logic
         {
             using (LibraryDataEntities contex = new LibraryDataEntities())
             {
-                List<int> idList = contex.Vartotojais.Select(x => x.Id).ToList();
+                List<int> idList = contex.Vartotojas.Select(x => x.Id).ToList();
 
                 return idList.Last() + 1;
             }

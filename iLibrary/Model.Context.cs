@@ -27,7 +27,7 @@ namespace iLibrary
     
         public virtual DbSet<Egzemplioriu> Egzempliorius { get; set; }
         public virtual DbSet<Knygos> Knygos { get; set; }
-        public virtual DbSet<Vartotojai> Vartotojais { get; set; }
+        public virtual DbSet<Vartotojas> Vartotojas { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

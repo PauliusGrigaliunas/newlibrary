@@ -20,6 +20,6 @@ namespace iLibrary
         public Nullable<System.DateTime> Gražinimo_laikas { get; set; }
     
         public virtual Knygos Knygo { get; set; }
-        public virtual Vartotojai Vartotojai { get; set; }
+        public virtual Vartotojas Vartotojas { get; set; }
     }
 }

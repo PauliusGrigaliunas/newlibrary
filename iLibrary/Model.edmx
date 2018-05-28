@@ -116,7 +116,7 @@ warning 6002: The table/view 'LibraryData.sys.database_firewall_rules' does not 
           <Property Name="Skaitytojas" Type="Int32" />
           <Property Name="Gražinimo_laikas" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Knygo" Relationship="Self.FK_Egzempliorius_ToTable" FromRole="Egzempliorius" ToRole="Knygos" />
-          <NavigationProperty Name="Vartotojai" Relationship="Self.FK_Egzempliorius_ToTable_1" FromRole="Egzempliorius" ToRole="Vartotojai" />
+          <NavigationProperty Name="Vartotojas" Relationship="Self.FK_Egzempliorius_ToTable_1" FromRole="Egzempliorius" ToRole="Vartotojai" />
         </EntityType>
         <EntityType Name="Knygos">
           <Key>
@@ -129,7 +129,7 @@ warning 6002: The table/view 'LibraryData.sys.database_firewall_rules' does not 
           <Property Name="Metai" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Egzempliorius" Relationship="Self.FK_Egzempliorius_ToTable" FromRole="Knygos" ToRole="Egzempliorius" />
         </EntityType>
-        <EntityType Name="Vartotojai">
+        <EntityType Name="Vartotojas">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -172,7 +172,7 @@ warning 6002: The table/view 'LibraryData.sys.database_firewall_rules' does not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Egzempliorius_ToTable_1">
-          <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="0..1" />
+          <End Role="Vartotojai" Type="LibraryDataModel.Vartotojas" Multiplicity="0..1" />
           <End Role="Egzempliorius" Type="Self.Egzemplioriu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vartotojai">
@@ -186,14 +186,14 @@ warning 6002: The table/view 'LibraryData.sys.database_firewall_rules' does not 
         <EntityContainer Name="LibraryDataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Egzempliorius" EntityType="Self.Egzemplioriu" />
           <EntitySet Name="Knygos" EntityType="LibraryDataModel.Knygos" />
-          <EntitySet Name="Vartotojais" EntityType="Self.Vartotojai" />
+          <EntitySet Name="Vartotojas" EntityType="LibraryDataModel.Vartotojas" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
           <AssociationSet Name="FK_Egzempliorius_ToTable" Association="Self.FK_Egzempliorius_ToTable">
             <End Role="Knygos" EntitySet="Knygos" />
             <End Role="Egzempliorius" EntitySet="Egzempliorius" />
           </AssociationSet>
           <AssociationSet Name="FK_Egzempliorius_ToTable_1" Association="Self.FK_Egzempliorius_ToTable_1">
-            <End Role="Vartotojai" EntitySet="Vartotojais" />
+            <End Role="Vartotojai" EntitySet="Vartotojas" />
             <End Role="Egzempliorius" EntitySet="Egzempliorius" />
           </AssociationSet>
         </EntityContainer>
@@ -224,8 +224,8 @@ warning 6002: The table/view 'LibraryData.sys.database_firewall_rules' does not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vartotojais">
-            <EntityTypeMapping TypeName="LibraryDataModel.Vartotojai">
+          <EntitySetMapping Name="Vartotojas">
+            <EntityTypeMapping TypeName="LibraryDataModel.Vartotojas">
               <MappingFragment StoreEntitySet="Vartotojai">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Prisijungimo_vardas" ColumnName="Prisijungimo vardas" />
