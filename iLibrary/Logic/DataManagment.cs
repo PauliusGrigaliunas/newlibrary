@@ -37,5 +37,22 @@ namespace iLibrary.Logic
                 return idList.Last() + 1;
             }
         }
+
+
+        public bool LogMeIn(User user)
+        {
+            using (var context = new LibraryDataEntities())
+            {
+                IQueryable<Vartotojas> query = from Vartotojas in context.Vartotojas
+                                               where Vartotojas.Prisijungimo_vardas == user.Username
+                                               where Vartotojas.Slaptazodis == user.Password
+                                               where Vartotojas.DarbSkait == user.DarbSkait
+                                               select Vartotojas;
+
+                if (query.Any())
+                    return true;
+                else return false;
+            }
+        }
     }
 }
