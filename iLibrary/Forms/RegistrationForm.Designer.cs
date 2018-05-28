@@ -44,11 +44,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.BackBtn = new System.Windows.Forms.Button();
             this.RegistrationBtn = new System.Windows.Forms.Button();
+            this.userButton = new System.Windows.Forms.RadioButton();
+            this.employeeButton = new System.Windows.Forms.RadioButton();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(214, 141);
+            this.textBox1.Location = new System.Drawing.Point(214, 155);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(221, 22);
             this.textBox1.TabIndex = 0;
@@ -56,7 +60,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(214, 193);
+            this.textBox2.Location = new System.Drawing.Point(214, 195);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(221, 22);
             this.textBox2.TabIndex = 1;
@@ -64,7 +68,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(214, 238);
+            this.textBox3.Location = new System.Drawing.Point(214, 236);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(221, 22);
             this.textBox3.TabIndex = 2;
@@ -72,7 +76,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(214, 286);
+            this.textBox4.Location = new System.Drawing.Point(214, 274);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(221, 22);
             this.textBox4.TabIndex = 3;
@@ -80,7 +84,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(214, 326);
+            this.textBox5.Location = new System.Drawing.Point(214, 312);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(221, 22);
             this.textBox5.TabIndex = 4;
@@ -88,7 +92,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(214, 364);
+            this.textBox6.Location = new System.Drawing.Point(214, 352);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(221, 22);
             this.textBox6.TabIndex = 5;
@@ -97,7 +101,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 146);
+            this.label1.Location = new System.Drawing.Point(37, 155);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 17);
             this.label1.TabIndex = 6;
@@ -106,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 193);
+            this.label2.Location = new System.Drawing.Point(37, 195);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 17);
             this.label2.TabIndex = 7;
@@ -115,7 +119,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 238);
+            this.label3.Location = new System.Drawing.Point(37, 236);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 8;
@@ -124,7 +128,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 289);
+            this.label4.Location = new System.Drawing.Point(37, 317);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 17);
             this.label4.TabIndex = 9;
@@ -133,7 +137,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 331);
+            this.label5.Location = new System.Drawing.Point(37, 357);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 17);
             this.label5.TabIndex = 10;
@@ -142,7 +146,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 367);
+            this.label6.Location = new System.Drawing.Point(37, 388);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 11;
@@ -169,7 +173,7 @@
             // 
             // BackBtn
             // 
-            this.BackBtn.Location = new System.Drawing.Point(137, 413);
+            this.BackBtn.Location = new System.Drawing.Point(136, 422);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.Size = new System.Drawing.Size(109, 34);
             this.BackBtn.TabIndex = 14;
@@ -179,7 +183,7 @@
             // 
             // RegistrationBtn
             // 
-            this.RegistrationBtn.Location = new System.Drawing.Point(328, 413);
+            this.RegistrationBtn.Location = new System.Drawing.Point(328, 422);
             this.RegistrationBtn.Name = "RegistrationBtn";
             this.RegistrationBtn.Size = new System.Drawing.Size(107, 34);
             this.RegistrationBtn.TabIndex = 15;
@@ -187,11 +191,55 @@
             this.RegistrationBtn.UseVisualStyleBackColor = true;
             this.RegistrationBtn.Click += new System.EventHandler(this.RegistrationBtn_Click);
             // 
+            // userButton
+            // 
+            this.userButton.AutoSize = true;
+            this.userButton.Checked = true;
+            this.userButton.Location = new System.Drawing.Point(70, 113);
+            this.userButton.Name = "userButton";
+            this.userButton.Size = new System.Drawing.Size(97, 21);
+            this.userButton.TabIndex = 17;
+            this.userButton.TabStop = true;
+            this.userButton.Text = "Skaitytojas";
+            this.userButton.UseVisualStyleBackColor = true;
+            // 
+            // employeeButton
+            // 
+            this.employeeButton.AutoSize = true;
+            this.employeeButton.Location = new System.Drawing.Point(226, 113);
+            this.employeeButton.Name = "employeeButton";
+            this.employeeButton.Size = new System.Drawing.Size(106, 21);
+            this.employeeButton.TabIndex = 18;
+            this.employeeButton.TabStop = true;
+            this.employeeButton.Text = "Darbuotojas";
+            this.employeeButton.UseVisualStyleBackColor = true;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(214, 388);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(221, 22);
+            this.textBox7.TabIndex = 19;
+            this.textBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 279);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 17);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Vardas*";
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 485);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.employeeButton);
+            this.Controls.Add(this.userButton);
             this.Controls.Add(this.RegistrationBtn);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.label8);
@@ -233,5 +281,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button BackBtn;
         private System.Windows.Forms.Button RegistrationBtn;
+        private System.Windows.Forms.RadioButton userButton;
+        private System.Windows.Forms.RadioButton employeeButton;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label9;
     }
 }
