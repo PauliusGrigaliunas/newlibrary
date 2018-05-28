@@ -13,7 +13,6 @@ namespace iLibrary.Forms
 {
     public partial class RegistrationForm : Form
     {
-        DataManagment dataManagment = new DataManagment();
         public RegistrationForm()
         {
             InitializeComponent();
@@ -74,10 +73,10 @@ namespace iLibrary.Forms
                     user.Address = (!(textBox6.Text == "") ? textBox6.Text : null);
                     user.Code =  (!(textBox7.Text == "") ? Int32.Parse(textBox7.Text) : (int?)null);
 
-                    dataManagment.FillData(user);
+                    user.FillData();
+                    Form form = FormManager.ClientOrEmployee(user.DarbSkait);
+                    form.ShowDialog();
                 }
-
-
 
             }
             catch (ArgumentException)
