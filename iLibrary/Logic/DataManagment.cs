@@ -180,5 +180,35 @@ namespace iLibrary.Logic
                 contex.SaveChanges();
             }
         }
+        public void TakeBook(int isbn, int id, int skaitytojas)
+        {
+            using (var contex = new LibraryDataEntities())
+            {
+                var egzemplioriai = contex.Egzempliorius.
+                    SingleOrDefault(r => r.Id == id && r.Isbn == isbn);
+                if (egzemplioriai != null)
+                {
+                    egzemplioriai.Skaitytojas = skaitytojas;
+                }
+                contex.SaveChanges();
+            }
+        }
+        public bool CheckIfNotTaken(int isbn, int id)
+        {
+            bool isTaken = false;
+            IQueryable<Egzemplioriu> egzemplioriai;
+            using (var contex = new LibraryDataEntities())
+            {
+                egzemplioriai = contex.Egzempliorius.Where(r => r.Id > 0);
+                foreach (var egz in egzemplioriai)
+                {
+                    if (egz.Isbn == isbn && egz.Id == id && egz.Skaitytojas >= 1)
+                    {
+                        isTaken = true;
+                    }
+                }
+            }
+            return isTaken;
+        }
     }
 }
