@@ -39,13 +39,13 @@ namespace iLibrary
             ShowInfo();
         }
 
-        private void knygosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        /*private void knygosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
             this.knygosBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.libraryDataDataSet);
 
-        }
+        }*/
 
         public void JoinTables()
         {
