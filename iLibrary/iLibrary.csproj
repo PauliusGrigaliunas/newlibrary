@@ -107,6 +107,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Logic\Book.cs" />
     <Compile Include="Logic\Program.cs" />
     <Compile Include="Logic\User.cs" />
     <Compile Include="Model.Context.cs">
