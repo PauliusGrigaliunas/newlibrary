@@ -22,12 +22,11 @@ namespace iLibrary.Logic
                 egzemplioriai = contex.Egzempliorius.Where(r => r.Id > 0);
                 foreach (var egz in egzemplioriai)
                 {
-                    Copy c = new Copy();
-                    c.Isbn = egz.Isbn;
-                    c.Id = egz.Id;
-                    c.Skaitytojas = egz.Skaitytojas;
-                    c.GrazinimoLaikas = egz.Gražinimo_laikas;
-                    copies.Add(c);
+                    Isbn = egz.Isbn;
+                    Id = egz.Id;
+                    Skaitytojas = egz.Skaitytojas;
+                    GrazinimoLaikas = egz.Gražinimo_laikas;
+                    copies.Add(this);
                 }
             }
         }
