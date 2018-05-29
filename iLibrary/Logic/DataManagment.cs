@@ -52,7 +52,7 @@ namespace iLibrary.Logic
                     from c in copies
                     join b in books on c.Isbn equals b.Isbn into ps
                     from b in ps.DefaultIfEmpty()
-                    select new { Isbn = c.Isbn, Id = c.Id, Pavadinimas = b.Pavadinimas, Autorius = b.Autorius, Skaitytojas = c.Skaitytojas, GrazinimoLaikas = c.GrazinimoLaikas };
+                    select new { c.Isbn, c.Id, b.Pavadinimas, b.Autorius, c.Skaitytojas, c.GrazinimoLaikas };
             foreach (var element in q)
             {
                 BooksWithCopies temp = new BooksWithCopies();
