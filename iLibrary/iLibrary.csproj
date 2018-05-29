@@ -99,7 +99,14 @@
     <Compile Include="Knygos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Logic\DataManagment.cs" />
+    <Compile Include="LibraryDataDataSet.cs">
+      <DependentUpon>LibraryDataDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryDataDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryDataDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Logic\Program.cs" />
     <Compile Include="Logic\User.cs" />
     <Compile Include="Model.Context.cs">
@@ -152,6 +159,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="LibraryDataDataSet.xsc">
+      <DependentUpon>LibraryDataDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LibraryDataDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibraryDataDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LibraryDataDataSet.xss">
+      <DependentUpon>LibraryDataDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
