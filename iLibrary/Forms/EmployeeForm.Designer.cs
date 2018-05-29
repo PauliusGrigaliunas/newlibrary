@@ -50,13 +50,6 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.knygosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.knygosDataGridView = new System.Windows.Forms.DataGridView();
-            this.autoriusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pavadinimasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leidyklaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.skaitytojasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gražinimoLaikasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.knygosTableAdapter = new iLibrary.LibraryDataDataSetTableAdapters.KnygosTableAdapter();
             this.tableAdapterManager = new iLibrary.LibraryDataDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,11 +57,11 @@
             this.Leidykla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Metai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Skaitytojas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bwcListView = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.knygosBindingNavigator)).BeginInit();
             this.knygosBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.knygosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.knygosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // workerLabel
@@ -152,6 +145,7 @@
             this.knygosBindingNavigator.Size = new System.Drawing.Size(644, 27);
             this.knygosBindingNavigator.TabIndex = 3;
             this.knygosBindingNavigator.Text = "bindingNavigator1";
+            this.knygosBindingNavigator.RefreshItems += new System.EventHandler(this.knygosBindingNavigator_RefreshItems);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -257,60 +251,6 @@
             this.knygosBindingNavigatorSaveItem.Text = "Save Data";
             this.knygosBindingNavigatorSaveItem.Click += new System.EventHandler(this.knygosBindingNavigatorSaveItem_Click);
             // 
-            // knygosDataGridView
-            // 
-            this.knygosDataGridView.AutoGenerateColumns = false;
-            this.knygosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.knygosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.autoriusDataGridViewTextBoxColumn,
-            this.pavadinimasDataGridViewTextBoxColumn,
-            this.leidyklaDataGridViewTextBoxColumn,
-            this.metaiDataGridViewTextBoxColumn,
-            this.skaitytojasDataGridViewTextBoxColumn,
-            this.gražinimoLaikasDataGridViewTextBoxColumn});
-            this.knygosDataGridView.DataSource = this.knygosBindingSource;
-            this.knygosDataGridView.Location = new System.Drawing.Point(12, 216);
-            this.knygosDataGridView.Name = "knygosDataGridView";
-            this.knygosDataGridView.RowTemplate.Height = 24;
-            this.knygosDataGridView.Size = new System.Drawing.Size(620, 254);
-            this.knygosDataGridView.TabIndex = 6;
-            // 
-            // autoriusDataGridViewTextBoxColumn
-            // 
-            this.autoriusDataGridViewTextBoxColumn.DataPropertyName = "Autorius";
-            this.autoriusDataGridViewTextBoxColumn.HeaderText = "Autorius";
-            this.autoriusDataGridViewTextBoxColumn.Name = "autoriusDataGridViewTextBoxColumn";
-            // 
-            // pavadinimasDataGridViewTextBoxColumn
-            // 
-            this.pavadinimasDataGridViewTextBoxColumn.DataPropertyName = "Pavadinimas";
-            this.pavadinimasDataGridViewTextBoxColumn.HeaderText = "Pavadinimas";
-            this.pavadinimasDataGridViewTextBoxColumn.Name = "pavadinimasDataGridViewTextBoxColumn";
-            // 
-            // leidyklaDataGridViewTextBoxColumn
-            // 
-            this.leidyklaDataGridViewTextBoxColumn.DataPropertyName = "Leidykla";
-            this.leidyklaDataGridViewTextBoxColumn.HeaderText = "Leidykla";
-            this.leidyklaDataGridViewTextBoxColumn.Name = "leidyklaDataGridViewTextBoxColumn";
-            // 
-            // metaiDataGridViewTextBoxColumn
-            // 
-            this.metaiDataGridViewTextBoxColumn.DataPropertyName = "Metai";
-            this.metaiDataGridViewTextBoxColumn.HeaderText = "Metai";
-            this.metaiDataGridViewTextBoxColumn.Name = "metaiDataGridViewTextBoxColumn";
-            // 
-            // skaitytojasDataGridViewTextBoxColumn
-            // 
-            this.skaitytojasDataGridViewTextBoxColumn.DataPropertyName = "Skaitytojas";
-            this.skaitytojasDataGridViewTextBoxColumn.HeaderText = "Skaitytojas";
-            this.skaitytojasDataGridViewTextBoxColumn.Name = "skaitytojasDataGridViewTextBoxColumn";
-            // 
-            // gražinimoLaikasDataGridViewTextBoxColumn
-            // 
-            this.gražinimoLaikasDataGridViewTextBoxColumn.DataPropertyName = "Gražinimo laikas";
-            this.gražinimoLaikasDataGridViewTextBoxColumn.HeaderText = "Gražinimo laikas";
-            this.gražinimoLaikasDataGridViewTextBoxColumn.Name = "gražinimoLaikasDataGridViewTextBoxColumn";
-            // 
             // knygosTableAdapter
             // 
             this.knygosTableAdapter.ClearBeforeFill = true;
@@ -351,12 +291,20 @@
             this.Skaitytojas.HeaderText = "Skaitytojas";
             this.Skaitytojas.Name = "Skaitytojas";
             // 
+            // bwcListView
+            // 
+            this.bwcListView.Location = new System.Drawing.Point(12, 219);
+            this.bwcListView.Name = "bwcListView";
+            this.bwcListView.Size = new System.Drawing.Size(620, 268);
+            this.bwcListView.TabIndex = 5;
+            this.bwcListView.UseCompatibleStateImageBehavior = false;
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 574);
-            this.Controls.Add(this.knygosDataGridView);
+            this.Controls.Add(this.bwcListView);
             this.Controls.Add(this.knygosBindingNavigator);
             this.Controls.Add(this.deleteUnitButton);
             this.Controls.Add(this.addUnitButton);
@@ -366,13 +314,11 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmployeeForm";
             this.Text = "Darbuotojo meniu";
-            this.Load += new System.EventHandler(this.EmployeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.knygosBindingNavigator)).EndInit();
             this.knygosBindingNavigator.ResumeLayout(false);
             this.knygosBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.knygosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.knygosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,17 +348,11 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton knygosBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView knygosDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Leidykla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Metai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Skaitytojas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn autoriusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pavadinimasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn leidyklaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn metaiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn skaitytojasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gražinimoLaikasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ListView bwcListView;
     }
 }
