@@ -11,8 +11,6 @@ using System.Windows.Forms;
 
 namespace iLibrary
 {
-
-
     public struct BooksWithCopies
     {
         public int Isbn { get; set; }
@@ -31,11 +29,14 @@ namespace iLibrary
         List<Book> books;
         List<BooksWithCopies> bwc;
         User user;
-
+        DataManagment dm;
         public EmployeeForm(User user)
         {
-            this.user = user;
             InitializeComponent();
+            this.user = user;
+            bwcListView.View = View.Details;
+            JoinTables();
+            ShowInfo();
         }
 
         private void knygosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -46,21 +47,14 @@ namespace iLibrary
 
         }
 
-        public EmployeeForm()
-        {
-            InitializeComponent();
-            bwcListView.View = View.Details;
-            JoinTables();
-            ShowInfo();
-        }
         public void JoinTables()
         {
             copies = new List<Copy>();
             books = new List<Book>();
-           /* //dm = new DataManagment();
+            dm = new DataManagment();
             dm.GetAllCopies(copies);                       //Visi egzemplioriai surasomi y List copies is duombazes
             dm.GetAllBooks(books);                         //Visos knygos surasomos y List books is duombazes
-            bwc = dm.GetBooksWithCopies(copies, books);  */    //Left outer joinas, sujungia tuos du listus ir gaunamas listas, kurio tipas auksciau ivardinta structura   
+            bwc = dm.GetBooksWithCopies(copies, books);     //Left outer joinas, sujungia tuos du listus ir gaunamas listas, kurio tipas auksciau ivardinta structura   
         }
         public void ShowInfo()
         {

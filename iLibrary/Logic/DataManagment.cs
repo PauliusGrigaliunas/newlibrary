@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace iLibrary.Logic
 {
-    public class Book
+    public class DataManagment
     {
-        public int Isbn { get; set; }
-        public string Pavadinimas { get; set; }
-        public string Autorius { get; set; }
-        public string Leidykla { get; set; }
-        public DateTime? Metai { get; set; }
-
-
 
 
         public void GetAllBooks(List<Book> books)
