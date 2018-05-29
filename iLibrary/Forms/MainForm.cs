@@ -51,5 +51,18 @@ namespace iLibrary
             RegistrationForm form = new RegistrationForm();
             form.ShowDialog();
         }
+
+        private void rb_skaitytojas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_skaitytojas.Checked == true) rb_darbuotojas.Checked = false;
+            else rb_darbuotojas.Checked = true;
+        }
+
+        private void rb_darbuotojas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_darbuotojas.Checked == true) rb_skaitytojas.Checked = false;
+            else rb_skaitytojas.Checked = true;
+
+        }
     }
 }

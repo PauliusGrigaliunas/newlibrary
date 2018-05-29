@@ -134,6 +134,7 @@
             this.rb_skaitytojas.TabStop = true;
             this.rb_skaitytojas.Text = "Skaitytojas";
             this.rb_skaitytojas.UseVisualStyleBackColor = true;
+            this.rb_skaitytojas.CheckedChanged += new System.EventHandler(this.rb_skaitytojas_CheckedChanged);
             // 
             // rb_darbuotojas
             // 
@@ -145,6 +146,7 @@
             this.rb_darbuotojas.TabStop = true;
             this.rb_darbuotojas.Text = "Darbuotojas";
             this.rb_darbuotojas.UseVisualStyleBackColor = true;
+            this.rb_darbuotojas.CheckedChanged += new System.EventHandler(this.rb_darbuotojas_CheckedChanged);
             // 
             // MainForm
             // 
