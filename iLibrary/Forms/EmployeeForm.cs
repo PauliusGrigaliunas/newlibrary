@@ -1,4 +1,5 @@
-﻿using iLibrary.Logic;
+﻿using iLibrary.Forms;
+using iLibrary.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,6 +58,58 @@ namespace iLibrary
 
                 bwcListView.Items.Add(item);
             }
+        }
+        private void addBook_Click(object sender, EventArgs e)
+        {
+            AddBookForm abf = new AddBookForm();
+            abf.ShowDialog();
+            JoinTables();
+            ShowInfo();
+        }
+
+        private void removeBookButton_Click(object sender, EventArgs e)
+        {
+            DeleteBookForm dbf = new DeleteBookForm();
+            dbf.ShowDialog();
+            JoinTables();
+            ShowInfo();
+        }
+
+        private void addUnitButton_Click(object sender, EventArgs e)
+        {
+            AddCopyForm acf = new AddCopyForm();
+            acf.ShowDialog();
+            JoinTables();
+            ShowInfo();
+        }
+
+        private void deleteUnitButton_Click(object sender, EventArgs e)
+        {
+            string idString;
+            if (bwcListView.SelectedItems.Count > 0)
+            {
+                idString = bwcListView.SelectedItems[0].SubItems[1].Text;
+            }
+            else idString = null;
+
+            if (idString == null)
+            {
+                MessageBox.Show("Pasirinkite egzemplioriu is zemiau esanciu");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Ar tikrai norite pašalinti egzempliorių, kurio ID: " + idString + "?", "Šalinimo įspėjimas", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(idString);
+                    DataManagment dm = new DataManagment();
+                    dm.DeleteCopy(id);
+                    MessageBox.Show("Sekmingai pašalinta!");
+                    JoinTables();
+                    ShowInfo();
+                }
+            }
+            
         }
     }
 }

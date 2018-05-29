@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iLibrary.Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,28 @@ namespace iLibrary.Forms
 
         private void commentLabel_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Book knyga = new Book();
+            try
+            {
+                knyga.Pavadinimas = nameBox.Text;
+                knyga.Autorius = authorBox.Text;
+                knyga.Isbn = int.Parse(unitBox.Text);
+                knyga.Leidykla = publisherBox.Text;
+                knyga.Metai = null;
+                DataManagment dm = new DataManagment();
+                dm.FillData(knyga);
+                MessageBox.Show("Prideta sekmingai");
+                Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Neteisingai ivesti duomenys");
+            }
 
         }
     }

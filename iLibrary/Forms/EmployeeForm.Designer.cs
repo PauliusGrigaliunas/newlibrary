@@ -61,6 +61,7 @@
             this.addBook.TabIndex = 2;
             this.addBook.Text = "Pridėti knygą";
             this.addBook.UseVisualStyleBackColor = true;
+            this.addBook.Click += new System.EventHandler(this.addBook_Click);
             // 
             // removeBookButton
             // 
@@ -70,6 +71,7 @@
             this.removeBookButton.TabIndex = 2;
             this.removeBookButton.Text = "Pašalinti knygą";
             this.removeBookButton.UseVisualStyleBackColor = true;
+            this.removeBookButton.Click += new System.EventHandler(this.removeBookButton_Click);
             // 
             // addUnitButton
             // 
@@ -79,6 +81,7 @@
             this.addUnitButton.TabIndex = 2;
             this.addUnitButton.Text = "Pridėti egzempliorių";
             this.addUnitButton.UseVisualStyleBackColor = true;
+            this.addUnitButton.Click += new System.EventHandler(this.addUnitButton_Click);
             // 
             // deleteUnitButton
             // 
@@ -88,6 +91,7 @@
             this.deleteUnitButton.TabIndex = 2;
             this.deleteUnitButton.Text = "Pašalinti egzempliorių";
             this.deleteUnitButton.UseVisualStyleBackColor = true;
+            this.deleteUnitButton.Click += new System.EventHandler(this.deleteUnitButton_Click);
             // 
             // bwcListView
             // 

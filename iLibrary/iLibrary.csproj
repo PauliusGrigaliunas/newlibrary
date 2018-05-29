@@ -66,11 +66,23 @@
     <Compile Include="Forms\AddBookForm.Designer.cs">
       <DependentUpon>AddBookForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddCopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCopyForm.Designer.cs">
+      <DependentUpon>AddCopyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BookInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\BookInfoForm.Designer.cs">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteBookForm.Designer.cs">
+      <DependentUpon>DeleteBookForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EmployeeForm.cs">
       <SubType>Form</SubType>
@@ -127,8 +139,14 @@
     <EmbeddedResource Include="Forms\AddBookForm.resx">
       <DependentUpon>AddBookForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddCopyForm.resx">
+      <DependentUpon>AddCopyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookInfoForm.resx">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteBookForm.resx">
+      <DependentUpon>DeleteBookForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>

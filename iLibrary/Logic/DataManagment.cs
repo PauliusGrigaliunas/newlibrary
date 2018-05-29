@@ -28,6 +28,37 @@ namespace iLibrary.Logic
                 contex.SaveChanges();
             }
         }
+        public void FillData(Book book)
+        {
+            using (LibraryDataEntities contex = new LibraryDataEntities())
+            {
+                Knygos knyga = new Knygos()
+                {
+                    Pavadinimas = book.Pavadinimas,
+                    Autorius = book.Autorius,
+                    Isbn = book.Isbn,
+                    Leidykla = book.Leidykla,
+                    Metai = book.Metai
+                };
+                contex.Knygos.Add(knyga);
+                contex.SaveChanges();
+            }
+        }
+        public void FillData(Copy copy)
+        {
+            using (LibraryDataEntities contex = new LibraryDataEntities())
+            {
+                Egzemplioriu egz = new Egzemplioriu()
+                {
+                    Id = copy.Id,
+                    Skaitytojas = copy.Skaitytojas,
+                    Isbn = copy.Isbn,
+                    Gražinimo_laikas = copy.GrazinimoLaikas
+                };
+                contex.Egzempliorius.Add(egz);
+                contex.SaveChanges();
+            }
+        }
         private int NewIdForVartotojai()
         {
             using (LibraryDataEntities contex = new LibraryDataEntities())
@@ -92,6 +123,62 @@ namespace iLibrary.Logic
                 bwc.Add(temp);
             }
             return bwc;
+        }
+        public bool CheckIfExistIsbn(int isbn)
+        {
+            bool isExist = false;
+            IQueryable<Egzemplioriu> egzemplioriai;
+            using (var contex = new LibraryDataEntities())
+            {
+                egzemplioriai = contex.Egzempliorius.Where(r => r.Id > 0);
+                foreach (var egz in egzemplioriai)
+                {
+                    if (egz.Isbn == isbn)
+                    {
+                        isExist = true;
+                    }
+                }
+            }
+            return isExist;
+        }
+        public void DeleteCopy(int Id)
+        {
+            IQueryable<Egzemplioriu> egzemplioriai;
+            Egzemplioriu delete = null;
+            using (var contex = new LibraryDataEntities())
+            {
+                egzemplioriai = contex.Egzempliorius.Where(r => r.Id > 0);
+                foreach (var egz in egzemplioriai)
+                {
+                    if (egz.Id == Id)
+                    {
+                        delete = egz;
+                    }
+                }
+                if (delete != null)
+                {
+                    contex.Egzempliorius.Remove(delete);
+                    contex.SaveChanges();
+                }
+            }
+        }
+        public void DeleteAllCopies(int isbn)
+        {
+            IQueryable<Egzemplioriu> egzemplioriai;
+            Egzemplioriu delete = null;
+            using (var contex = new LibraryDataEntities())
+            {
+                egzemplioriai = contex.Egzempliorius.Where(r => r.Id > 0);
+                foreach (var egz in egzemplioriai)
+                {
+                    if (egz.Isbn == isbn)
+                    {
+                        delete = egz;
+                        contex.Egzempliorius.Remove(delete);
+                    }
+                }
+                contex.SaveChanges();
+            }
         }
     }
 }
