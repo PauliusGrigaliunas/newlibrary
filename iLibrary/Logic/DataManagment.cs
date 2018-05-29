@@ -210,5 +210,18 @@ namespace iLibrary.Logic
             }
             return isTaken;
         }
+        public void ReturnBook(int isbn, int id)
+        {
+            using (var contex = new LibraryDataEntities())
+            {
+                var egzemplioriai = contex.Egzempliorius.
+                    SingleOrDefault(r => r.Id == id && r.Isbn == isbn);
+                if (egzemplioriai != null)
+                {
+                    egzemplioriai.Skaitytojas = null;
+                }
+                contex.SaveChanges();
+            }
+        }
     }
 }

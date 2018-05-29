@@ -41,6 +41,12 @@
             this.Skaitytojas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GrazinimoLaikas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.allBooksLabel = new System.Windows.Forms.Label();
+            this.columnHeaderISBN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderpPav = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderReader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // greetLabel
@@ -71,9 +77,17 @@
             this.returnBookButton.TabIndex = 1;
             this.returnBookButton.Text = "Gražinti knygą";
             this.returnBookButton.UseVisualStyleBackColor = true;
+            this.returnBookButton.Click += new System.EventHandler(this.returnBookButton_Click);
             // 
             // ownedBooksListView
             // 
+            this.ownedBooksListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderISBN,
+            this.columnHeaderID,
+            this.columnHeaderpPav,
+            this.columnHeaderAuthor,
+            this.columnHeaderReader,
+            this.columnHeaderTime});
             this.ownedBooksListView.FullRowSelect = true;
             this.ownedBooksListView.Location = new System.Drawing.Point(12, 78);
             this.ownedBooksListView.Name = "ownedBooksListView";
@@ -145,6 +159,36 @@
             this.allBooksLabel.TabIndex = 4;
             this.allBooksLabel.Text = "Visų knygų sąrašas:";
             // 
+            // columnHeaderISBN
+            // 
+            this.columnHeaderISBN.Text = "ISBN";
+            this.columnHeaderISBN.Width = 40;
+            // 
+            // columnHeaderID
+            // 
+            this.columnHeaderID.Text = "ID";
+            this.columnHeaderID.Width = 35;
+            // 
+            // columnHeaderpPav
+            // 
+            this.columnHeaderpPav.Text = "Pavadinimas";
+            this.columnHeaderpPav.Width = 150;
+            // 
+            // columnHeaderAuthor
+            // 
+            this.columnHeaderAuthor.Text = "Autorius";
+            this.columnHeaderAuthor.Width = 150;
+            // 
+            // columnHeaderReader
+            // 
+            this.columnHeaderReader.Text = "Skaitytojas";
+            this.columnHeaderReader.Width = 65;
+            // 
+            // columnHeaderTime
+            // 
+            this.columnHeaderTime.Text = "Gražinimo laikas";
+            this.columnHeaderTime.Width = 120;
+            // 
             // UserSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,5 +223,11 @@
         private System.Windows.Forms.ColumnHeader Autorius;
         private System.Windows.Forms.ColumnHeader Skaitytojas;
         private System.Windows.Forms.ColumnHeader GrazinimoLaikas;
+        private System.Windows.Forms.ColumnHeader columnHeaderISBN;
+        private System.Windows.Forms.ColumnHeader columnHeaderID;
+        private System.Windows.Forms.ColumnHeader columnHeaderpPav;
+        private System.Windows.Forms.ColumnHeader columnHeaderAuthor;
+        private System.Windows.Forms.ColumnHeader columnHeaderReader;
+        private System.Windows.Forms.ColumnHeader columnHeaderTime;
     }
 }
