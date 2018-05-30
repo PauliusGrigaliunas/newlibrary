@@ -30,8 +30,13 @@
         {
             this.greetLabel = new System.Windows.Forms.Label();
             this.takeBookButton = new System.Windows.Forms.Button();
-            this.returnBookButton = new System.Windows.Forms.Button();
             this.ownedBooksListView = new System.Windows.Forms.ListView();
+            this.columnHeaderISBN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderpPav = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderReader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.takenLabel = new System.Windows.Forms.Label();
             this.AllBooksListView = new System.Windows.Forms.ListView();
             this.ISBN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -41,12 +46,6 @@
             this.Skaitytojas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GrazinimoLaikas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.allBooksLabel = new System.Windows.Forms.Label();
-            this.columnHeaderISBN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderpPav = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderReader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // greetLabel
@@ -69,16 +68,6 @@
             this.takeBookButton.UseVisualStyleBackColor = true;
             this.takeBookButton.Click += new System.EventHandler(this.takeBookButton_Click);
             // 
-            // returnBookButton
-            // 
-            this.returnBookButton.Location = new System.Drawing.Point(12, 253);
-            this.returnBookButton.Name = "returnBookButton";
-            this.returnBookButton.Size = new System.Drawing.Size(137, 26);
-            this.returnBookButton.TabIndex = 1;
-            this.returnBookButton.Text = "Gražinti knygą";
-            this.returnBookButton.UseVisualStyleBackColor = true;
-            this.returnBookButton.Click += new System.EventHandler(this.returnBookButton_Click);
-            // 
             // ownedBooksListView
             // 
             this.ownedBooksListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -94,6 +83,36 @@
             this.ownedBooksListView.Size = new System.Drawing.Size(459, 169);
             this.ownedBooksListView.TabIndex = 2;
             this.ownedBooksListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeaderISBN
+            // 
+            this.columnHeaderISBN.Text = "ISBN";
+            this.columnHeaderISBN.Width = 40;
+            // 
+            // columnHeaderID
+            // 
+            this.columnHeaderID.Text = "ID";
+            this.columnHeaderID.Width = 35;
+            // 
+            // columnHeaderpPav
+            // 
+            this.columnHeaderpPav.Text = "Pavadinimas";
+            this.columnHeaderpPav.Width = 150;
+            // 
+            // columnHeaderAuthor
+            // 
+            this.columnHeaderAuthor.Text = "Autorius";
+            this.columnHeaderAuthor.Width = 150;
+            // 
+            // columnHeaderReader
+            // 
+            this.columnHeaderReader.Text = "Skaitytojas";
+            this.columnHeaderReader.Width = 65;
+            // 
+            // columnHeaderTime
+            // 
+            this.columnHeaderTime.Text = "Gražinimo laikas";
+            this.columnHeaderTime.Width = 120;
             // 
             // takenLabel
             // 
@@ -159,36 +178,6 @@
             this.allBooksLabel.TabIndex = 4;
             this.allBooksLabel.Text = "Visų knygų sąrašas:";
             // 
-            // columnHeaderISBN
-            // 
-            this.columnHeaderISBN.Text = "ISBN";
-            this.columnHeaderISBN.Width = 40;
-            // 
-            // columnHeaderID
-            // 
-            this.columnHeaderID.Text = "ID";
-            this.columnHeaderID.Width = 35;
-            // 
-            // columnHeaderpPav
-            // 
-            this.columnHeaderpPav.Text = "Pavadinimas";
-            this.columnHeaderpPav.Width = 150;
-            // 
-            // columnHeaderAuthor
-            // 
-            this.columnHeaderAuthor.Text = "Autorius";
-            this.columnHeaderAuthor.Width = 150;
-            // 
-            // columnHeaderReader
-            // 
-            this.columnHeaderReader.Text = "Skaitytojas";
-            this.columnHeaderReader.Width = 65;
-            // 
-            // columnHeaderTime
-            // 
-            this.columnHeaderTime.Text = "Gražinimo laikas";
-            this.columnHeaderTime.Width = 120;
-            // 
             // UserSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,11 +187,11 @@
             this.Controls.Add(this.takenLabel);
             this.Controls.Add(this.AllBooksListView);
             this.Controls.Add(this.ownedBooksListView);
-            this.Controls.Add(this.returnBookButton);
             this.Controls.Add(this.takeBookButton);
             this.Controls.Add(this.greetLabel);
             this.Name = "UserSettingsForm";
             this.Text = "Vartotojo meniu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserSettingsForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,7 +201,6 @@
 
         private System.Windows.Forms.Label greetLabel;
         private System.Windows.Forms.Button takeBookButton;
-        private System.Windows.Forms.Button returnBookButton;
         private System.Windows.Forms.ListView ownedBooksListView;
         private System.Windows.Forms.Label takenLabel;
         private System.Windows.Forms.ListView AllBooksListView;

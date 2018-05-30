@@ -41,13 +41,14 @@
             this.Skaitytojas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GrazinimoLaikas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bookListLabel = new System.Windows.Forms.Label();
+            this.ReturnBookButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // workerLabel
             // 
             this.workerLabel.AutoSize = true;
             this.workerLabel.Font = new System.Drawing.Font("Segoe Script", 19.8F);
-            this.workerLabel.Location = new System.Drawing.Point(101, 25);
+            this.workerLabel.Location = new System.Drawing.Point(119, 21);
             this.workerLabel.Name = "workerLabel";
             this.workerLabel.Size = new System.Drawing.Size(278, 42);
             this.workerLabel.TabIndex = 0;
@@ -55,7 +56,7 @@
             // 
             // addBook
             // 
-            this.addBook.Location = new System.Drawing.Point(31, 85);
+            this.addBook.Location = new System.Drawing.Point(12, 85);
             this.addBook.Name = "addBook";
             this.addBook.Size = new System.Drawing.Size(141, 31);
             this.addBook.TabIndex = 2;
@@ -65,7 +66,7 @@
             // 
             // removeBookButton
             // 
-            this.removeBookButton.Location = new System.Drawing.Point(31, 132);
+            this.removeBookButton.Location = new System.Drawing.Point(12, 132);
             this.removeBookButton.Name = "removeBookButton";
             this.removeBookButton.Size = new System.Drawing.Size(141, 31);
             this.removeBookButton.TabIndex = 2;
@@ -75,7 +76,7 @@
             // 
             // addUnitButton
             // 
-            this.addUnitButton.Location = new System.Drawing.Point(293, 85);
+            this.addUnitButton.Location = new System.Drawing.Point(330, 85);
             this.addUnitButton.Name = "addUnitButton";
             this.addUnitButton.Size = new System.Drawing.Size(141, 31);
             this.addUnitButton.TabIndex = 2;
@@ -85,7 +86,7 @@
             // 
             // deleteUnitButton
             // 
-            this.deleteUnitButton.Location = new System.Drawing.Point(293, 132);
+            this.deleteUnitButton.Location = new System.Drawing.Point(330, 132);
             this.deleteUnitButton.Name = "deleteUnitButton";
             this.deleteUnitButton.Size = new System.Drawing.Size(141, 31);
             this.deleteUnitButton.TabIndex = 2;
@@ -149,11 +150,22 @@
             this.bookListLabel.TabIndex = 4;
             this.bookListLabel.Text = "Knygų ir jų egzempliorių sąrašas:";
             // 
+            // ReturnBookButton
+            // 
+            this.ReturnBookButton.Location = new System.Drawing.Point(173, 104);
+            this.ReturnBookButton.Name = "ReturnBookButton";
+            this.ReturnBookButton.Size = new System.Drawing.Size(140, 42);
+            this.ReturnBookButton.TabIndex = 5;
+            this.ReturnBookButton.Text = "Gražinti knygą";
+            this.ReturnBookButton.UseVisualStyleBackColor = true;
+            this.ReturnBookButton.Click += new System.EventHandler(this.ReturnBookButton_Click);
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 491);
+            this.Controls.Add(this.ReturnBookButton);
             this.Controls.Add(this.bookListLabel);
             this.Controls.Add(this.bwcListView);
             this.Controls.Add(this.deleteUnitButton);
@@ -163,6 +175,7 @@
             this.Controls.Add(this.workerLabel);
             this.Name = "EmployeeForm";
             this.Text = "Darbuotojo meniu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +196,6 @@
         private System.Windows.Forms.ColumnHeader Autorius;
         private System.Windows.Forms.ColumnHeader Skaitytojas;
         private System.Windows.Forms.ColumnHeader GrazinimoLaikas;
+        private System.Windows.Forms.Button ReturnBookButton;
     }
 }

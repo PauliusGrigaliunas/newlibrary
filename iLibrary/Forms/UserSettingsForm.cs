@@ -19,8 +19,9 @@ namespace iLibrary.Forms
         List<BooksWithCopies> allBooks;
         DataManagment dm;
         int skaitytojas;
-        public UserSettingsForm(int skaitytojas)
+        public UserSettingsForm(int skaitytojas, MainForm mf)
         {
+            mf.Hide();
             this.skaitytojas = skaitytojas;
             InitializeComponent();
             AllBooksListView.View = View.Details;
@@ -108,36 +109,46 @@ namespace iLibrary.Forms
 
         }
 
-        private void returnBookButton_Click(object sender, EventArgs e)
+        private void UserSettingsForm_VisibleChanged(object sender, EventArgs e)
         {
-            string isbnString;
-            string idString;
-            if (ownedBooksListView.SelectedItems.Count > 0)
-            {
-                isbnString = ownedBooksListView.SelectedItems[0].Text;
-                idString = ownedBooksListView.SelectedItems[0].SubItems[1].Text; ;
-            }
-            else { isbnString = null; idString = null; }
-
-            if (idString == null)
-            {
-                MessageBox.Show("Pasirinkite knygą iš aukščiau esančiu");
-            }
-            else
-            {
-                DialogResult dialogResult = MessageBox.Show("Ar tikrai norite gražinti knygą, kurios ID: " + idString + "?", "Tikslinimas", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    int id = Convert.ToInt32(idString);
-                    int isbn = Convert.ToInt32(isbnString);
-                    dm.ReturnBook(isbn, id);
-                    MessageBox.Show("Sėkmingai gražinta!");
-                    JoinTables();
-                    ShowOwnedInfo();
-                    ShowInfoAllBooks();
-                }
-            }
 
         }
+
+        private void UserSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        /*       private void returnBookButton_Click(object sender, EventArgs e)
+               {
+                   string isbnString;
+                   string idString;
+                   if (ownedBooksListView.SelectedItems.Count > 0)
+                   {
+                       isbnString = ownedBooksListView.SelectedItems[0].Text;
+                       idString = ownedBooksListView.SelectedItems[0].SubItems[1].Text; ;
+                   }
+                   else { isbnString = null; idString = null; }
+
+                   if (idString == null)
+                   {
+                       MessageBox.Show("Pasirinkite knygą iš aukščiau esančiu");
+                   }
+                   else
+                   {
+                       DialogResult dialogResult = MessageBox.Show("Ar tikrai norite gražinti knygą, kurios ID: " + idString + "?", "Tikslinimas", MessageBoxButtons.YesNo);
+                       if (dialogResult == DialogResult.Yes)
+                       {
+                           int id = Convert.ToInt32(idString);
+                           int isbn = Convert.ToInt32(isbnString);
+                           dm.ReturnBook(isbn, id);
+                           MessageBox.Show("Sėkmingai gražinta!");
+                           JoinTables();
+                           ShowOwnedInfo();
+                           ShowInfoAllBooks();
+                       }
+                   }
+
+               }*/
     }
 }

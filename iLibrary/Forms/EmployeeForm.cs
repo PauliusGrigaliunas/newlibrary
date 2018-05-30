@@ -28,8 +28,9 @@ namespace iLibrary
         List<BooksWithCopies> bwc;
         DataManagment dm;
 
-        public EmployeeForm()
+        public EmployeeForm(MainForm mf)
         {
+            mf.Hide();
             InitializeComponent();
             bwcListView.View = View.Details;
             JoinTables();
@@ -110,6 +111,42 @@ namespace iLibrary
                 }
             }
             
+        }
+
+        private void ReturnBookButton_Click(object sender, EventArgs e)
+        {
+            string isbnString;
+            string idString;
+            if (bwcListView.SelectedItems.Count > 0)
+            {
+                isbnString = bwcListView.SelectedItems[0].Text;
+                idString = bwcListView.SelectedItems[0].SubItems[1].Text; ;
+            }
+            else { isbnString = null; idString = null; }
+
+            if (idString == null)
+            {
+                MessageBox.Show("Pasirinkite knygą iš žemiau esančiu");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Ar tikrai norite atlaisvinti knygą, kurios ID: " + idString + "?", "Tikslinimas", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(idString);
+                    int isbn = Convert.ToInt32(isbnString);
+                    dm.ReturnBook(isbn, id);
+                    MessageBox.Show("Sėkmingai gražinta!");
+                    JoinTables();
+                    ShowInfo();
+                }
+            }
+
+        }
+
+        private void EmployeeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -32,13 +32,33 @@ namespace iLibrary
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             Logic.Login login = new Logic.Login();
+            int ID = 0;
             int typeOfUser = rb_skaitytojas.Checked ? 0 : 1;
-            var exists = login.LogMeIn(textBox1.Text, textBox2.Text, typeOfUser);
+            var exists = login.LogMeIn(textBox1.Text, textBox2.Text, typeOfUser, ID);
             //Ideally in this place we would like to load a new form :)
             if (exists)
             {
                 // successful login
-                MessageBox.Show(exists.ToString() + " " + typeOfUser);
+ //               MessageBox.Show(exists.ToString() + " " + typeOfUser);
+
+                if (typeOfUser == 0)
+                {
+                    UserSettingsForm form = new UserSettingsForm(ID, this);
+                    form.Show();
+                    if (form.Visible == false)
+                    {
+                        Application.Exit();
+                    }
+                }
+                else
+                {
+                    EmployeeForm form = new EmployeeForm(this);
+                    form.Show();
+                    if (form.Visible == false)
+                    {
+                        Application.Exit();
+                    }
+                }
             }
             else
             {
