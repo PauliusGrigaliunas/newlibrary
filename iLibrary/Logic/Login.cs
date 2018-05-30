@@ -8,11 +8,10 @@ namespace iLibrary.Logic
 {
     class Login
     {
-        public bool LogMeIn(string username, string password, int typeOfUser, int ID)
+        public bool LogMeIn(string username, string password, int typeOfUser)
         {
             using (var context = new LibraryDataEntities())
             {
-                Vartotojas v = new Vartotojas();
                 IQueryable<Vartotojas> query = from Vartotojas in context.Vartotojas
                                                where Vartotojas.Prisijungimo_vardas == username
                                                where Vartotojas.Slaptazodis == password
@@ -20,7 +19,7 @@ namespace iLibrary.Logic
                                                select Vartotojas;
 
                 if (query.Any<Vartotojas>())
-                { return true; v = query.First(); ID = v.Id; }
+                { return true; }
                 else return false;
             }
         }

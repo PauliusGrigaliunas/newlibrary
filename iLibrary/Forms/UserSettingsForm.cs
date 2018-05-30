@@ -119,36 +119,5 @@ namespace iLibrary.Forms
             Application.Exit();
         }
 
-        /*       private void returnBookButton_Click(object sender, EventArgs e)
-               {
-                   string isbnString;
-                   string idString;
-                   if (ownedBooksListView.SelectedItems.Count > 0)
-                   {
-                       isbnString = ownedBooksListView.SelectedItems[0].Text;
-                       idString = ownedBooksListView.SelectedItems[0].SubItems[1].Text; ;
-                   }
-                   else { isbnString = null; idString = null; }
-
-                   if (idString == null)
-                   {
-                       MessageBox.Show("Pasirinkite knygą iš aukščiau esančiu");
-                   }
-                   else
-                   {
-                       DialogResult dialogResult = MessageBox.Show("Ar tikrai norite gražinti knygą, kurios ID: " + idString + "?", "Tikslinimas", MessageBoxButtons.YesNo);
-                       if (dialogResult == DialogResult.Yes)
-                       {
-                           int id = Convert.ToInt32(idString);
-                           int isbn = Convert.ToInt32(isbnString);
-                           dm.ReturnBook(isbn, id);
-                           MessageBox.Show("Sėkmingai gražinta!");
-                           JoinTables();
-                           ShowOwnedInfo();
-                           ShowInfoAllBooks();
-                       }
-                   }
-
-               }*/
     }
 }

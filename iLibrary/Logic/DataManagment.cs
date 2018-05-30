@@ -223,5 +223,21 @@ namespace iLibrary.Logic
                 contex.SaveChanges();
             }
         }
+        public int GetID (string username, string password)
+        {
+            IQueryable<Vartotojas> vartotojai;
+            using (var contex = new LibraryDataEntities())
+            {
+                vartotojai = contex.Vartotojas.Where(r => r.Id > 0);
+                foreach (var item in vartotojai)
+                {
+                    if (item.Prisijungimo_vardas == username && item.Slaptazodis == password)
+                    {
+                        return item.Id;
+                    }
+                }
+            }
+            return 0;
+        }
     }
 }
