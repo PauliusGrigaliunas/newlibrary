@@ -33,15 +33,16 @@ namespace iLibrary
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+            DataManagment dataManagment = new DataManagment();
             user.DarbSkait = rb_skaitytojas.Checked ? 0 : 1;
             user.Username = textBox1.Text;
             user.Password = textBox2.Text;
-            var exists = user.LogMeIn();
+            var exists = dataManagment.LogMeIn(user);
 
             if (exists)
             {
-                Form form = user.ClientOrEmployee();
-                form.ShowDialog();
+                // successful login
+                MessageBox.Show(exists.ToString() + " " + typeOfUser);
             }
             else
             {
