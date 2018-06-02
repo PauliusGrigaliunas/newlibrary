@@ -30,9 +30,9 @@ namespace iLibrary.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Book knyga = new Book();
             try
             {
+                Book knyga = new Book();
                 knyga.Pavadinimas = nameBox.Text;
                 knyga.Autorius = authorBox.Text;
                 knyga.Isbn = int.Parse(unitBox.Text);
@@ -45,9 +45,8 @@ namespace iLibrary.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Neteisingai ivesti duomenys");
+                MessageBox.Show("Neteisingai įvesti duomenys arba toks Egzemplioriaus ISBN jau yra");
             }
-
         }
     }
 }

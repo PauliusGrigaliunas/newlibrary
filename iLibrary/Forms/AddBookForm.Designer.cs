@@ -80,9 +80,9 @@
             this.unitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.unitLabel.Location = new System.Drawing.Point(58, 176);
             this.unitLabel.Name = "unitLabel";
-            this.unitLabel.Size = new System.Drawing.Size(105, 17);
+            this.unitLabel.Size = new System.Drawing.Size(99, 17);
             this.unitLabel.TabIndex = 0;
-            this.unitLabel.Text = "Egzempliorius*:";
+            this.unitLabel.Text = "Knygos ISBN*:";
             // 
             // publishLabel
             // 
@@ -100,9 +100,9 @@
             this.publishYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.publishYearLabel.Location = new System.Drawing.Point(59, 249);
             this.publishYearLabel.Name = "publishYearLabel";
-            this.publishYearLabel.Size = new System.Drawing.Size(104, 17);
+            this.publishYearLabel.Size = new System.Drawing.Size(99, 17);
             this.publishYearLabel.TabIndex = 0;
-            this.publishYearLabel.Text = "Leidimo metai*:";
+            this.publishYearLabel.Text = "Leidimo metai:";
             // 
             // addButton
             // 

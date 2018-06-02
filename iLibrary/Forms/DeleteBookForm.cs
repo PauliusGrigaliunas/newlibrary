@@ -30,12 +30,12 @@ namespace iLibrary.Forms
                 isbnString = deleteBox.Text;
                 try
                 {
-                    DialogResult dialogResult = MessageBox.Show("Ar tikrai norite pašalinti egzempliorių, kurio ISBN: " + isbnString + "?", "Šalinimo įspėjimas", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Ar tikrai norite pašalinti knygą, kurios ISBN: " + isbnString + "?", "Šalinimo įspėjimas", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         int isbn = Convert.ToInt32(isbnString);
                         DataManagment dm = new DataManagment();
-                        //dm.DeleteCopy(id);
+                        dm.DeleteBook(isbn);
                         MessageBox.Show("Sekmingai pašalinta!");
                     }
                 }

@@ -38,9 +38,17 @@ namespace iLibrary.Logic
                     Autorius = book.Autorius,
                     Isbn = book.Isbn,
                     Leidykla = book.Leidykla,
-                    Metai = book.Metai
+                    Metai = book.Metai                   
+                };
+                Egzemplioriu egz = new Egzemplioriu()
+                {
+                    Isbn = book.Isbn,
+                    Id = NewIdForEgzemplioriai(),
+                    Skaitytojas = null,
+                    Gražinimo_laikas = null
                 };
                 contex.Knygos.Add(knyga);
+                contex.Egzempliorius.Add(egz);
                 contex.SaveChanges();
             }
         }
@@ -57,6 +65,15 @@ namespace iLibrary.Logic
                 };
                 contex.Egzempliorius.Add(egz);
                 contex.SaveChanges();
+            }
+        }
+        private int NewIdForEgzemplioriai()
+        {
+            using (LibraryDataEntities contex = new LibraryDataEntities())
+            {
+                List<int> idList = contex.Egzempliorius.Select(x => x.Id).ToList();
+
+                return idList.Max() + 1;
             }
         }
         private int NewIdForVartotojai()
@@ -159,7 +176,39 @@ namespace iLibrary.Logic
                 {
                     contex.Egzempliorius.Remove(delete);
                     contex.SaveChanges();
+                    egzemplioriai = contex.Egzempliorius.Where(i => i.Isbn == delete.Isbn);
+                    if (egzemplioriai.Count() == 0)
+                    {
+                        DeleteBook(delete.Isbn);
+                    }
+                }               
+            }
+        }
+        public void DeleteBook(int isbn)
+        {
+            IQueryable<Egzemplioriu> egzemplioriai;
+            Egzemplioriu delete = null;
+            Knygos knygaDelete = null;
+            using (var contex = new LibraryDataEntities())
+            {
+                egzemplioriai = contex.Egzempliorius.Where(r => r.Id > 0);
+                foreach (var egz in egzemplioriai)
+                {
+                    if (egz.Isbn == isbn)
+                    {
+                        delete = egz;
+                        if (delete != null)
+                        {
+                            contex.Egzempliorius.Remove(delete);
+                        }
+                    }
                 }
+                knygaDelete = contex.Knygos.Where(k => k.Isbn == isbn).SingleOrDefault();
+                if (knygaDelete != null )
+                {
+                    contex.Knygos.Remove(knygaDelete);
+                }
+                contex.SaveChanges();
             }
         }
         public void DeleteAllCopies(int isbn)
