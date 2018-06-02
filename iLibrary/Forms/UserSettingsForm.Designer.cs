@@ -46,6 +46,8 @@
             this.Skaitytojas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GrazinimoLaikas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.allBooksLabel = new System.Windows.Forms.Label();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // greetLabel
@@ -178,11 +180,30 @@
             this.allBooksLabel.TabIndex = 4;
             this.allBooksLabel.Text = "Visų knygų sąrašas:";
             // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(233, 568);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(141, 20);
+            this.searchBox.TabIndex = 5;
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(370, 566);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(101, 23);
+            this.searchBtn.TabIndex = 6;
+            this.searchBtn.Text = "Ieškoti knygų";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
             // UserSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 600);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.allBooksLabel);
             this.Controls.Add(this.takenLabel);
             this.Controls.Add(this.AllBooksListView);
@@ -217,5 +238,7 @@
         private System.Windows.Forms.ColumnHeader columnHeaderAuthor;
         private System.Windows.Forms.ColumnHeader columnHeaderReader;
         private System.Windows.Forms.ColumnHeader columnHeaderTime;
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Button searchBtn;
     }
 }

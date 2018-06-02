@@ -119,5 +119,25 @@ namespace iLibrary.Forms
             Application.Exit();
         }
 
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            AllBooksListView.Items.Clear();
+            JoinTables();
+
+            foreach (var book in allBooks)
+            {
+                if (book.Pavadinimas.ToString().Contains(searchBox.Text) || searchBox.Text == String.Empty)
+                {
+                    ListViewItem item = new ListViewItem(book.Isbn.ToString());
+                    item.SubItems.Add(book.Id.ToString());
+                    item.SubItems.Add(book.Pavadinimas.ToString());
+                    item.SubItems.Add(book.Autorius.ToString());
+                    item.SubItems.Add(book.Skaitytojas.ToString());
+                    item.SubItems.Add(book.GrazinimoLaikas.ToString());
+
+                    AllBooksListView.Items.Add(item);
+                }
+            }
+        }
     }
 }

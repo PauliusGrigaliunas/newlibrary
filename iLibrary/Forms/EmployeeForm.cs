@@ -148,5 +148,26 @@ namespace iLibrary
         {
             Application.Exit();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            bwcListView.Items.Clear();
+            JoinTables();
+
+            foreach (var book in bwc)
+            {
+                if (book.Pavadinimas.ToString().Contains(searchTextBox.Text) || searchTextBox.Text == String.Empty )
+                {
+                    ListViewItem item = new ListViewItem(book.Isbn.ToString());
+                    item.SubItems.Add(book.Id.ToString());
+                    item.SubItems.Add(book.Pavadinimas.ToString());
+                    item.SubItems.Add(book.Autorius.ToString());
+                    item.SubItems.Add(book.Skaitytojas.ToString());
+                    item.SubItems.Add(book.GrazinimoLaikas.ToString());
+
+                    bwcListView.Items.Add(item);
+                }
+            }
+        }
     }
 }

@@ -42,6 +42,8 @@
             this.GrazinimoLaikas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bookListLabel = new System.Windows.Forms.Label();
             this.ReturnBookButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // workerLabel
@@ -160,11 +162,30 @@
             this.ReturnBookButton.UseVisualStyleBackColor = true;
             this.ReturnBookButton.Click += new System.EventHandler(this.ReturnBookButton_Click);
             // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(215, 452);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(141, 20);
+            this.searchTextBox.TabIndex = 6;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(353, 450);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(118, 23);
+            this.searchButton.TabIndex = 7;
+            this.searchButton.Text = "Ieškoti knygų";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 491);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.ReturnBookButton);
             this.Controls.Add(this.bookListLabel);
             this.Controls.Add(this.bwcListView);
@@ -197,5 +218,7 @@
         private System.Windows.Forms.ColumnHeader Skaitytojas;
         private System.Windows.Forms.ColumnHeader GrazinimoLaikas;
         private System.Windows.Forms.Button ReturnBookButton;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button searchButton;
     }
 }
